@@ -1,0 +1,26 @@
+{
+  "name": "rtc-screenshare",
+  "version": "0.0.0",
+  "description": "WebRTC Screensharing Chrome Extension ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtc-io/rtc-screenshare.git"
+  },
+  "keywords": [
+    "webrtc",
+    "rtc.io",
+    "screensharing",
+    "chrome",
+    "extension"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@nicta.com.au>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/rtc-io/rtc-screenshare/issues"
+  },
+  "homepage": "https://github.com/rtc-io/rtc-screenshare"
+}
