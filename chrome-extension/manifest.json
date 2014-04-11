@@ -17,5 +17,11 @@
   "permissions": [
     "desktopCapture",
     "activeTab"
-  ]
+  ],
+
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["screenshare-content.js"],
+    "run_at": "document_start"
+  }]
 }

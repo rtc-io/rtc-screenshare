@@ -8,4 +8,5 @@ $(REQUIRED_TOOLS):
 
 dist: $(REQUIRED_TOOLS)
 	@echo "building"
+	@browserify chrome-extension/content.js > chrome-extension/$(MODULE_NAME)-content.js --debug
 	@browserify chrome-extension/index.js > chrome-extension/$(MODULE_NAME).js --debug

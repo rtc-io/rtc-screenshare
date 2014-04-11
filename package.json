@@ -28,6 +28,7 @@
     "defaultcss": "0.0.2"
   },
   "devDependencies": {
-    "formatter": "^0.4.1"
+    "formatter": "^0.4.1",
+    "cog": "^0.5.3"
   }
 }

@@ -21,10 +21,20 @@ var flashlite = require('./lib/flashlite');
 
 module.exports = function(target, callback) {
   var flash = flashlite();
+  var requestId = (parseInt(localStorage.screenshareRequestId, 10) || 0) + 1;
+
+  function processData(data) {
+    console.log('received data: ', data);
+  }
 
   flash('you need to share');
 
   window.addEventListener('message', function(evt) {
-    console.log('received message: ', evt);
+    // if we have data and we didn't generate it then process
+    if (evt.data && evt.data.src !== 'page') {
+      processData(evt.data);
+    }
   });
+
+  window.postMessage({ device: target, src: 'page' }, '*');
 };
