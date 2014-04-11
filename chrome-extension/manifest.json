@@ -1,0 +1,21 @@
+{
+  "name": "rtc.io Desktop Screensharing Chrome Extension",
+  "version": "1.0",
+  "description": "Provides access to the chrome.desktopCapture api when enabled",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["screenshare.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    },
+    "default_title": "Screenshare"
+  },
+  "permissions": [
+    "desktopCapture",
+    "activeTab"
+  ]
+}

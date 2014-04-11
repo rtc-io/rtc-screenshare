@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/rtc-io/rtc-screenshare/issues"
   },
-  "homepage": "https://github.com/rtc-io/rtc-screenshare"
+  "homepage": "https://github.com/rtc-io/rtc-screenshare",
+  "dependencies": {
+    "rtc-media": "^1.6.0",
+    "defaultcss": "0.0.2"
+  },
+  "devDependencies": {
+    "formatter": "^0.4.1"
+  }
 }
