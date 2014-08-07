@@ -1,9 +1,17 @@
 {
-  "name": "WebRTC Screen Sharing for rtc.io",
-  "short_name": "rtc.io screenshare",
-  "version": "1.0",
-  "description": "Allow users to capture their desktop windows for WebRTC calls",
   "manifest_version": 2,
+  "name": "WebRTC Screen Sharing for rtc.io",
+  "version": "1.0",
+
+  "default_locale": "en",
+  "description": "Allow users to capture their desktop windows for WebRTC calls",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "author": "rtc.io",
+  "short_name": "rtc.io screenshare",
   "background": {
     "scripts": ["index.js"],
     "persistent": false
@@ -21,8 +29,5 @@
     "run_at": "document_start"
   }],
 
-  "icons": {
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
+  "minimum_chrome_version": "34"
 }
