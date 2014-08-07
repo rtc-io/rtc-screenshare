@@ -28,40 +28,6 @@ Including in this repository is a template extension that interacts with the
 [`chrome.desktopCapture`](https://developer.chrome.com/extensions/desktopCapture)
 API, and communicates with this module through `postMessage` calls.
 
-## cog/extend
-
-```js
-var extend = require('cog/extend');
-```
-
-### extend(target, *)
-
-Shallow copy object properties from the supplied source objects (*) into
-the target object, returning the target object once completed:
-
-```js
-extend({ a: 1, b: 2 }, { c: 3 }, { d: 4 }, { b: 5 }));
-```
-
-See an example on [requirebin](http://requirebin.com/?gist=6079475).
-
-## cog/extend
-
-```js
-var extend = require('cog/extend');
-```
-
-### extend(target, *)
-
-Shallow copy object properties from the supplied source objects (*) into
-the target object, returning the target object once completed:
-
-```js
-extend({ a: 1, b: 2 }, { c: 3 }, { d: 4 }, { b: 5 }));
-```
-
-See an example on [requirebin](http://requirebin.com/?gist=6079475).
-
 ## License(s)
 
 ### Apache 2.0
