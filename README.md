@@ -8,7 +8,7 @@ suitable constraints that can be passed onto a `getUserMedia` call.
 
 [![NPM](https://nodei.co/npm/rtc-screenshare.png)](https://nodei.co/npm/rtc-screenshare/)
 
-[![Build Status](https://img.shields.io/travis/rtc-io/rtc-screenshare.svg?branch=master)](https://travis-ci.org/rtc-io/rtc-screenshare) [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
 
 ## Example Usage
 
