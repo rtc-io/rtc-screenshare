@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/rtc-io/rtc-screenshare",
   "dependencies": {
-    "cog": "^1.0.0"
+    "cog": "^1.0.0",
+    "rtc-core": "^3.0.0"
   },
   "devDependencies": {
     "browserify": "^5.9.1",

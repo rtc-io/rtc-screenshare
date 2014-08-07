@@ -1,4 +1,6 @@
+var screenshare = require('..');
 var media = require('rtc-media');
-var config = require('rtc-captureconfig');
 
-media(config('share:window')).render(document.body);
+screenshare.window(function(err, constraints) {
+  media(constraints).render(document.body);
+});
