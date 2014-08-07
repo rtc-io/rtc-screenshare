@@ -3,7 +3,6 @@
   "name": "WebRTC Screen Sharing for rtc.io",
   "version": "1.0",
 
-  "default_locale": "en",
   "description": "Allow users to capture their desktop windows for WebRTC calls",
   "icons": {
     "48": "icon48.png",
