@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "browserify": "^5.9.1",
-    "gulp": "^3.8.7",
     "rtc-captureconfig": "^2.0.0",
     "rtc-media": "^1.6.0"
   }
