@@ -1,5 +1,6 @@
 {
   "name": "WebRTC Screen Sharing for rtc.io",
+  "short_name": "rtc.io screenshare",
   "version": "1.0",
   "description": "Allow users to capture their desktop windows for WebRTC calls",
   "manifest_version": 2,
