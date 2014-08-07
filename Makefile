@@ -1,6 +1,6 @@
 MODULE_NAME := screenshare
-REQUIRED_TOOLS := browserify
 BROWSERIFY_FLAGS := --debug
+NPM_BIN := ./node_modules/.bin
 
 PHONY: rebuild
 
@@ -12,9 +12,9 @@ $(REQUIRED_TOOLS):
 dist: $(REQUIRED_TOOLS)
 	@echo "building"
 	@mkdir -p dist
-	@browserify src/content.js > dist/content.js $(BROWSERIFY_FLAGS)
-	@browserify src/index.js > dist/index.js $(BROWSERIFY_FLAGS)
+	@$(NPM_BIN)/browserify src/content.js > dist/content.js $(BROWSERIFY_FLAGS)
+	@$(NPM_BIN)/browserify src/index.js > dist/index.js $(BROWSERIFY_FLAGS)
 	@cat src/manifest.json > dist/manifest.json
 
 clean:
-	rm -rf dist
+	@rm -rf dist
