@@ -17,6 +17,10 @@ var screenshare = require('rtc-screenshare');
 var media = require('rtc-media');
 
 screenshare.window(function(err, constraints) {
+  if (err) {
+    return console.error('Could not capture window: ', err);
+  }
+
   media(constraints).render(document.body);
 });
 
@@ -37,7 +41,7 @@ you can install it.
 ## Give it a Try
 
 Once you have the plugin installed, you should be able to take the screenshare
-module for a run using [requirebin](http://requirebin.com/?gist=6dcd5ced3964f0b3c40a)
+module for a run using [requirebin](https://requirebin.com/?gist=6dcd5ced3964f0b3c40a)
 
 This is, however, an early version of both the package and chrome extension so
 we will be working through any

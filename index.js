@@ -28,7 +28,7 @@ var screenshare = (detect.moz ? require('./moz') : require('./chrome'));
   ## Give it a Try
 
   Once you have the plugin installed, you should be able to take the screenshare
-  module for a run using [requirebin](http://requirebin.com/?gist=6dcd5ced3964f0b3c40a)
+  module for a run using [requirebin](https://requirebin.com/?gist=6dcd5ced3964f0b3c40a)
 
   This is, however, an early version of both the package and chrome extension so
   we will be working through any
