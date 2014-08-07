@@ -12,4 +12,12 @@ function handleMessage(evt) {
   }
 }
 
+chrome.runtime.onMessage.addListener(function(data, sender) {
+  if (sender.tab) {
+    return;
+  }
+
+  window.postMessage(extend(data, { src: 'extension' }), '*');
+});
+
 window.addEventListener('message', handleMessage);

@@ -7,16 +7,11 @@
     "scripts": ["screenshare.js"],
     "persistent": false
   },
-  "browser_action": {
-    "default_icon": {
-      "19": "images/icon19.png",
-      "38": "images/icon38.png"
-    },
-    "default_title": "Screenshare"
-  },
+
   "permissions": [
     "desktopCapture",
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
 
   "content_scripts": [{
