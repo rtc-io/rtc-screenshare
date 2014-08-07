@@ -4,7 +4,7 @@
   "description": "Provides access to the chrome.desktopCapture api when enabled",
   "manifest_version": 2,
   "background": {
-    "scripts": ["screenshare.js"],
+    "scripts": ["index.js"],
     "persistent": false
   },
 
@@ -16,7 +16,7 @@
 
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["screenshare-content.js"],
+    "js": ["content.js"],
     "run_at": "document_start"
   }]
 }
