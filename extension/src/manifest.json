@@ -1,7 +1,7 @@
 {
-  "name": "rtc.io Desktop Screensharing Chrome Extension",
+  "name": "Desktop Screensharing Chrome Extension for rtc.io",
   "version": "1.0",
-  "description": "Provides access to the chrome.desktopCapture api when enabled",
+  "description": "Allow users to capture their desktop windows for WebRTC calls",
   "manifest_version": 2,
   "background": {
     "scripts": ["index.js"],
@@ -18,5 +18,9 @@
     "matches": ["http://*/*", "https://*/*"],
     "js": ["content.js"],
     "run_at": "document_start"
-  }]
+  }],
+
+  "icons": {
+    "128": "icon128.png"
+  }
 }
