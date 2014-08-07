@@ -2,3 +2,4 @@
 node_modules
 npm-debug.log
 extension/dist/
+extension/bundle.zip

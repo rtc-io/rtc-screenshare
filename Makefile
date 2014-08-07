@@ -19,3 +19,7 @@ dist: $(REQUIRED_TOOLS)
 
 clean:
 	@rm -rf extension/dist
+
+zip: rebuild
+	@rm extension/bundle.zip
+	@zip -r extension/bundle.zip extension/dist/*
