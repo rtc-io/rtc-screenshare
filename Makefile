@@ -14,6 +14,7 @@ dist: $(REQUIRED_TOOLS)
 	@mkdir -p dist
 	@browserify src/content.js > dist/content.js $(BROWSERIFY_FLAGS)
 	@browserify src/index.js > dist/index.js $(BROWSERIFY_FLAGS)
+	@cat src/manifest.json > dist/manifest.js
 
 clean:
 	rm -rf dist
