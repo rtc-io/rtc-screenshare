@@ -11,10 +11,10 @@ $(REQUIRED_TOOLS):
 
 dist: $(REQUIRED_TOOLS)
 	@echo "building"
-	@mkdir -p dist
-	@$(NPM_BIN)/browserify src/content.js > dist/content.js $(BROWSERIFY_FLAGS)
-	@$(NPM_BIN)/browserify src/index.js > dist/index.js $(BROWSERIFY_FLAGS)
-	@cat src/manifest.json > dist/manifest.json
+	@mkdir -p extension/dist
+	@$(NPM_BIN)/browserify extension/src/content.js > extension/dist/content.js $(BROWSERIFY_FLAGS)
+	@$(NPM_BIN)/browserify extension/src/index.js > extension/dist/index.js $(BROWSERIFY_FLAGS)
+	@cat extension/src/manifest.json > extension/dist/manifest.json
 
 clean:
-	@rm -rf dist
+	@rm -rf extension/dist
