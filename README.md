@@ -21,7 +21,15 @@ screenshare.window(function(err, constraints) {
     return console.error('Could not capture window: ', err);
   }
 
-  media(constraints).render(document.body);
+  console.log('attempting capture with constraints: ', constraints);
+  media({ constraints: constraints })
+    .on('error', function(err) {
+      console.error('Could not capture: ', err);
+    })
+    .once('capture', function(stream) {
+      console.log('Successfully captured stream: ', stream);
+    })
+    .render(document.body);
 });
 
 ```
