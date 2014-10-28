@@ -7,13 +7,11 @@ function handleRequest(request, sender, sendResponse) {
   // if we have had a device requested, then capture that device and
   // send the deviceid back in the response
   if (request.type === 'share') {
-    capture(request.device, sender, sendResponse);
+    capture(request.targets, sender, sendResponse);
   }
 }
 
-function capture(target, sender, callback) {
-  var targets = [].concat(target || []);
-
+function capture(targets, sender, callback) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     if (chrome.runtime.lastError) {
       return callback({ error: chrome.runtime.lastError });

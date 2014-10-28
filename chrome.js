@@ -1,6 +1,15 @@
-var targets = {};
+module.exports = function(opts, callback) {
+  var targets;
 
-targets.window = function(callback) {
+  // remap args
+  if (typeof opts == 'function') {
+    callback = opts;
+    opts = {};
+  }
+
+  // get the target
+  targets = (opts || {}).targets || ['window', 'screen'];
+
   function handleMessage(evt) {
     if (evt && evt.data && evt.data.type === 'shareresult') {
       window.removeEventListener('message', handleMessage);
@@ -25,15 +34,5 @@ targets.window = function(callback) {
   }
 
   window.addEventListener('message', handleMessage);
-  window.postMessage({ device: 'window', src: 'page', type: 'share' }, '*');
-};
-
-module.exports = function(target, callback) {
-  var capture = targets[target];
-
-  if (typeof capture != 'function') {
-    return callback(new Error(target + ' capture not implemented'));
-  }
-
-  return capture(callback);
+  window.postMessage({ targets: targets, src: 'page', type: 'share' }, '*');
 };

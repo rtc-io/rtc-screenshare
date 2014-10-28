@@ -1,5 +1,4 @@
 var detect = require('rtc-core/detect');
-var screenshare = (detect.moz ? require('./moz') : require('./chrome'));
 
 /**
   # rtc-screenshare
@@ -36,11 +35,4 @@ var screenshare = (detect.moz ? require('./moz') : require('./chrome'));
   the __experimental__ status.
 
 **/
-
-['window'].forEach(function(target) {
-  screenshare[target] = function(callback) {
-    return screenshare(target, callback);
-  };
-});
-
-module.exports = screenshare;
+module.exports = (detect.moz ? require('./moz') : require('./chrome'));
