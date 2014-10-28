@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "WebRTC Screen Sharing for rtc.io",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Allow users to capture their desktop windows for WebRTC calls",
   "icons": {
