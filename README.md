@@ -16,7 +16,7 @@ suitable constraints that can be passed onto a `getUserMedia` call.
 var screenshare = require('rtc-screenshare');
 var media = require('rtc-media');
 
-screenshare.window(function(err, constraints) {
+screenshare(function(err, constraints) {
   if (err) {
     return console.error('Could not capture window: ', err);
   }
