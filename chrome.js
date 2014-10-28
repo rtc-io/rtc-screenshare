@@ -24,7 +24,11 @@ module.exports = function(opts, callback) {
         video: {
           mandatory: {
             chromeMediaSource: 'desktop',
-            chromeMediaSourceId: evt.data.sourceId
+            chromeMediaSourceId: evt.data.sourceId,
+            maxWidth: screen.width,
+            maxHeight: screen.height,
+            minFrameRate: 1,
+            maxFrameRate: 5
           },
 
           optional: []
