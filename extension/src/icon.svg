@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/doehlman/code/rtc.io/screenshare/extension/src/icon48.png"
+   inkscape:export-xdpi="33.75"
+   inkscape:export-ydpi="33.75">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.265625"
-     inkscape:cx="166.22816"
-     inkscape:cy="39.460543"
+     inkscape:zoom="1.9970242"
+     inkscape:cx="-65.489307"
+     inkscape:cy="56.024634"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
