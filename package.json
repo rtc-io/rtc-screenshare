@@ -30,7 +30,7 @@
     "rtc-core": "^3.0.0"
   },
   "devDependencies": {
-    "browserify": "^5.9.1",
+    "browserify": "^6.2.0",
     "rtc-captureconfig": "^2.0.0",
     "rtc-media": "^1.6.0"
   }
