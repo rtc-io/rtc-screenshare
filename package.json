@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gendocs": "rm -rf extension/dist && gendocs > README.md"
+    "gendocs": "rm -rf extension/dist && gendocs > README.md",
+    "demo": "beefy --cwd examples examples/share-window.js:bundle.js"
   },
   "stability": "experimental",
   "repository": {
@@ -27,11 +28,18 @@
   "homepage": "https://github.com/rtc-io/rtc-screenshare",
   "dependencies": {
     "cog": "^1.0.0",
-    "rtc-core": "^4.0.0"
+    "crel": "^2.1.7",
+    "rtc-core": "^4.0.0",
+    "chromex": "DamonOehlman/chromex"
   },
   "devDependencies": {
+    "beefy": "^2.1.1",
     "browserify": "^6.2.0",
+    "hyperscript": "^1.4.2",
+    "rtc-capture": "^1.0.2",
     "rtc-captureconfig": "^2.0.0",
-    "rtc-media": "^1.6.0"
+    "rtc-media": "^2.0.1",
+    "rtc-quickconnect": "^4.0.0",
+    "rtc-ui": "^1.1.0"
   }
 }
