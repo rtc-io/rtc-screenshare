@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/rtc-io/rtc-screenshare",
   "dependencies": {
+    "chromex": "^1.0.0",
     "cog": "^1.0.0",
     "crel": "^2.1.7",
-    "rtc-core": "^4.0.0",
-    "chromex": "DamonOehlman/chromex"
+    "rtc-core": "^4.0.0"
   },
   "devDependencies": {
     "beefy": "^2.1.1",
