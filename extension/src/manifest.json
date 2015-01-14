@@ -1,5 +1,6 @@
 {
   "manifest_version": 2,
+  "minimum_chrome_version": "34",
   "name": "WebRTC Screen Sharing for rtc.io",
   "version": "1.2",
   "description": "Allow users to capture their desktop windows for WebRTC calls",
@@ -15,12 +16,11 @@
   },
   "permissions": [
     "desktopCapture",
-    "activeTab",
     "https://*.rtc.io/*"
   ],
 
-  "content_scripts": [
-    { "matches": ["https://*.rtc.io/*"], "js": [ "message-bridge.js" ] }
-  ],
-  "minimum_chrome_version": "34"
+  "content_scripts": [{
+    "matches": ["https://*.rtc.io/*"],
+    "js": [ "message-bridge.js" ]
+  }]
 }
