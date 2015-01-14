@@ -41,7 +41,7 @@ screenshare.available(function(err, version) {
 });
 
 // on install show the capture button and remove the install button if active
-screenshare.on('install', function() {
+screenshare.on('activate', function() {
   if (buttons.install.parentNode) {
     buttons.install.parentNode.removeChild(buttons.install);
   }
