@@ -46,62 +46,10 @@ gulp.task('clean', 'Clean the extension dist directory', function(cb) {
   rimraf(path.join(extensionPath, 'dist'), cb);
 });
 
-
-/*
-gulp.task('serve', 'Serve the local files using a development server', function(cb) {
-  var mount = st({
-    path: process.cwd(),
-    index: 'index.html',
-    cache: false
-  });
-
-  http.createServer(mount).listen(port, function(err) {
-    if (! err) {
-      gutil.log('server running @ http://localhost:' + port + '/');
-    }
-
-    cb(err);
-  });
-});
-
-gulp.task('package', 'Package for upload to build.rtc.io', function() {
+gulp.task('package', 'Package the extension for deployment', ['build'], function() {
   return gulp.src([
-    './*',
-    '!*.zip',
-    'vendor/*',
-    '!vendor/*.zip',
-    'css/*',
-    '!css/*.zip',
-    'icons/*',
-    '!icons/*.zip',
-    '!gulpfile.js',
-    '!package.json'
-  ], { base: '.' })
-  .pipe(zip('archive.zip'))
+    './extension/dist/**',
+  ], { base: './extension/dist' })
+  .pipe(zip('extension-bundle.zip'))
   .pipe(gulp.dest('.//'));
 });
-
-gulp.task('vendor', 'Rebuild vendor scripts from node package dependencies', [
-  'vendor-rtc',
-  'plugin-ios',
-  'plugin-temasys'
-]);
-
-gulp.task('vendor-rtc', function() {
-  return gulp
-    .src('node_modules/rtc/dist/*')
-    .pipe(gulp.dest('vendor/'));
-});
-
-gulp.task('plugin-ios', function() {
-  return gulp
-    .src('node_modules/rtc-plugin-nicta-ios/dist/*')
-    .pipe(gulp.dest('vendor/'));
-});
-
-gulp.task('plugin-temasys', function() {
-  return gulp
-    .src('node_modules/rtc-plugin-temasys/dist/*')
-    .pipe(gulp.dest('vendor/'));
-});
-*/
