@@ -19,6 +19,10 @@ module.exports = function(opts) {
         return callback(err);
       }
 
+      if (! sourceId) {
+        return callback(new Error('user rejected screen share request'));
+      }
+
       // pass the constraints through
       return callback(null, {
         audio: false,
