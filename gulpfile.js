@@ -7,11 +7,10 @@ var extensionPath = path.resolve(__dirname, 'extension');
 var browserify = require('browserify');
 var transform = require('vinyl-transform');
 
-gulp.task('default', ['rebuild']);
-gulp.task('rebuild', 'Rebuild the extension assets', ['clean', 'build']);
+gulp.task('default', ['build']);
 gulp.task('build', 'Rebuild the extension files', ['extension-assets', 'extension-browserify']);
 
-gulp.task('extension-browserify', 'Browserify the extension files', function() {
+gulp.task('extension-browserify', 'Browserify the extension files', ['prepare'], function() {
   var browserified = transform(function(filename) {
     var b = browserify(filename);
     return b.bundle();
@@ -24,7 +23,7 @@ gulp.task('extension-browserify', 'Browserify the extension files', function() {
   .pipe(gulp.dest('./extension/dist'));
 });
 
-gulp.task('extension-assets', 'Copy the extension source assets into the dist folder', ['chromex-assets'], function() {
+gulp.task('extension-assets', 'Copy the extension source assets into the dist folder', ['prepare', 'chromex-assets'], function() {
   return gulp.src([
     './extension/src/*.png',
     './extension/src/*.svg',
@@ -33,11 +32,14 @@ gulp.task('extension-assets', 'Copy the extension source assets into the dist fo
   .pipe(gulp.dest('./extension/dist'));
 });
 
-gulp.task('chromex-assets', 'Assets required for the chromex code to work as expected', function() {
+gulp.task('chromex-assets', 'Assets required for the chromex code to work as expected', ['prepare'], function() {
   return gulp.src([
     './node_modules/chromex/scripts/*.js'
   ])
   .pipe(gulp.dest('./extension/dist/scripts'));
+});
+
+gulp.task('prepare', 'Prepare the build', ['clean'], function() {
 });
 
 gulp.task('clean', 'Clean the extension dist directory', function(cb) {
