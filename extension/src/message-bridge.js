@@ -1,1 +1,0 @@
-require('chromex/message-bridge');
