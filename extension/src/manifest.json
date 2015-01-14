@@ -21,6 +21,6 @@
 
   "content_scripts": [{
     "matches": ["https://*.rtc.io/*"],
-    "js": [ "message-bridge.js" ]
+    "js": [ "scripts/message-bridge.js" ]
   }]
 }
