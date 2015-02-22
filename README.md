@@ -80,13 +80,9 @@ you can install it.
 
 ## Give it a Try
 
-Once you have the plugin installed, you should be able to take the screenshare
-module for a run using [requirebin](https://requirebin.com/?gist=6dcd5ced3964f0b3c40a)
-
-This is, however, an early version of both the package and chrome extension so
-we will be working through any
-[issues](https://github.com/rtc-io/rtc-screenshare/issues) before removing
-the __experimental__ status.
+We've created a simple demo showing how to broadcast your screen and made it
+available here at <https://rtc.io/screeny>
+([source](https://github.com/rtc-io/demo-screenshare))
 
 ## License(s)
 
