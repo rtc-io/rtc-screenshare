@@ -81,8 +81,8 @@ you can install it.
 ## Give it a Try
 
 We've created a simple demo showing how to broadcast your screen and made it
-available here at <https://rtc.io/screeny>
-([source](https://github.com/rtc-io/demo-screenshare))
+available here at <https://rtc.io/screeny/>
+([source](https://github.com/rtc-io/demo-screenshare)).
 
 ## License(s)
 
