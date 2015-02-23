@@ -12,7 +12,6 @@ $(REQUIRED_TOOLS):
 dist: $(REQUIRED_TOOLS)
 	@echo "building"
 	@mkdir -p extension/dist
-	@$(NPM_BIN)/browserify extension/src/message-bridge.js > extension/dist/message-bridge.js $(BROWSERIFY_FLAGS)
 	@$(NPM_BIN)/browserify extension/src/index.js > extension/dist/index.js $(BROWSERIFY_FLAGS)
 	@cat extension/src/manifest.json > extension/dist/manifest.json
 	@cp extension/src/*.png extension/dist
