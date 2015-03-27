@@ -4,6 +4,7 @@ var OPT_DEFAULTS = {
 };
 
 module.exports = function(opts) {
+  var lastRequestId;
   var extension = require('chromex/client')(extend({}, OPT_DEFAULTS, opts, {
     target: (opts || {}).chromeExtension
   }));
@@ -14,7 +15,7 @@ module.exports = function(opts) {
 
   // patch in our capture function
   extension.request = function(callback) {
-    extension.sendCommand('share', function(err, sourceId) {
+    extension.sendCommand('share', function(err, sourceId, requestId) {
       if (err) {
         return callback(err);
       }
@@ -22,6 +23,9 @@ module.exports = function(opts) {
       if (! sourceId) {
         return callback(new Error('user rejected screen share request'));
       }
+      
+      // update the last requestId
+      lastRequestId = requestId;
 
       // pass the constraints through
       return callback(null, {
@@ -39,6 +43,15 @@ module.exports = function(opts) {
           optional: []
         }
       });
+    });
+  };
+  
+  extension.cancel = function(requestId) {
+    var opts = {
+      requestId: requestId || lastRequestId
+    };
+
+    extension.sendCommand('cancel', opts, function(err) {
     });
   };
 
