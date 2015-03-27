@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gendocs": "rm -rf extension/dist && gendocs > README.md",
-    "demo": "beefy --cwd examples examples/share-window.js:bundle.js"
+    "gendocs": "gendocs > README.md",
+    "start": "beefy --cwd examples examples/share-window.js:bundle.js"
   },
   "stability": "experimental",
   "repository": {
@@ -33,19 +33,11 @@
     "rtc-core": "^4.0.0"
   },
   "devDependencies": {
-    "beefy": "^2.1.1",
-    "browserify": "^8.1.0",
-    "gulp": "^3.8.10",
-    "gulp-help": "^1.3.1",
-    "gulp-util": "^3.0.2",
-    "gulp-zip": "^2.0.2",
     "hyperscript": "^1.4.2",
-    "rimraf": "^2.2.8",
     "rtc-capture": "^1.0.2",
     "rtc-captureconfig": "^2.0.0",
     "rtc-media": "^2.0.1",
     "rtc-quickconnect": "^4.0.0",
-    "rtc-ui": "^1.1.0",
-    "vinyl-transform": "^1.0.0"
+    "rtc-ui": "^1.1.0"
   }
 }
