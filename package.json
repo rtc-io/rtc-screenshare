@@ -29,7 +29,6 @@
   "dependencies": {
     "chromex": "^1.1.0",
     "cog": "^1.0.0",
-    "crel": "^2.1.7",
     "rtc-core": "^4.0.0"
   },
   "devDependencies": {
