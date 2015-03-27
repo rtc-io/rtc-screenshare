@@ -14,11 +14,9 @@ var detect = require('rtc-core/detect');
 
   ## Template Extension
 
-  Including in this repository is a template extension that interacts with the
-  [`chrome.desktopCapture`](https://developer.chrome.com/extensions/desktopCapture)
-  API, and communicates with this module through `postMessage` calls.
-
-  An early, installable version of the extension is available in the
+  Template extension
+  [source is available](https://github.com/rtc-io/rtc-screenshare-extension) and
+  an early, installable version of the extension is available in the
   [Chrome Web Store](https://chrome.google.com/webstore/detail/webrtc-screen-sharing-for/einjngigaajacmojcohefgmnhhdnllic).
 
   __NOTE:__ The extension is not publicly available yet, but using the direct link
