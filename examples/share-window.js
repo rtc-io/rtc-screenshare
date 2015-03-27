@@ -26,6 +26,9 @@ function shareScreen() {
       target: document.getElementById('main')
     });
   });
+  
+  // you better select something quick or this will be cancelled!!!
+  setTimeout(screenshare.cancel, 5e3);
 }
 
 // detect whether the screenshare plugin is available and matches
