@@ -1,6 +1,5 @@
 var media = require('rtc-media');
 var h = require('hyperscript');
-var crel = require('crel');
 var screenshare = require('..')({
   chromeExtension: 'rtc.io screenshare',
   version: '^1.0.0'
