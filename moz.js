@@ -1,8 +1,9 @@
+var detect = require('rtc-core/detect');
+var EventEmitter = require('eventemitter3');
 var targets = {};
 
 targets.window = function(callback) {
   callback(null, {
-    audio: false,
     video: {
       mozMediaSource: 'window',
       mediaSource: 'window'
@@ -10,12 +11,38 @@ targets.window = function(callback) {
   });
 };
 
-module.exports = function(target, callback) {
+/**
+  Returns true if we should use Firefox screensharing
+ **/
+exports.supported = function() {
+  return detect.moz;
+};
+
+exports.share = function(opts) {
+  opts = opts || {};
+  var target = opts.target || 'window';
   var capture = targets[target];
 
-  if (typeof capture != 'function') {
-    return callback(new Error(target + ' capture not implemented'));
-  }
+  var extension = new EventEmitter();
 
-  return capture(callback);
+  extension.type = 'mozilla/firefox';
+
+  extension.available = function(callback) {
+    if (typeof capture != 'function') {
+      return callback(new Error(target + ' capture not implemented'), 'not-supported');
+    }
+    return callback();
+  };
+
+  extension.request = function(callback) {
+    return capture(callback);
+  };
+
+  extension.cancel = function(callback) {
+
+  };
+
+  extension.emit('activate');
+
+  return extension;
 };

@@ -25,7 +25,7 @@ function shareScreen() {
       target: document.getElementById('main')
     });
   });
-  
+
   // you better select something quick or this will be cancelled!!!
   setTimeout(screenshare.cancel, 5e3);
 }
@@ -36,6 +36,11 @@ screenshare.available(function(err, version) {
   var actions = document.getElementById('actions');
 
   if (err) {
+    if (version === 'not-supported') {
+      return actions.appendChild(
+        h('div', 'Sorry, but screen capture is not supported in this browser and version [%s]', extension.type)
+      );
+    }
     return actions.appendChild(buttons.install);
   }
 
