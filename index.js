@@ -1,5 +1,3 @@
-var detect = require('rtc-core/detect');
-
 /**
   # rtc-screenshare
 
@@ -29,4 +27,15 @@ var detect = require('rtc-core/detect');
   ([source](https://github.com/rtc-io/demo-screenshare)).
 
 **/
-module.exports = (detect.moz ? require('./moz') : require('./chrome'));
+module.exports = function() {
+  console.error('Screensharing is not supported on this device');
+};
+
+var handlers = [require('./chrome'), require('./moz')];
+for (var i = 0; i < handlers.length; i++) {
+  var handler = handlers[i];
+  if (handler && handler.supported()) {
+    module.exports = handler.share;
+    break;
+  }
+}

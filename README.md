@@ -8,7 +8,7 @@ suitable constraints that can be passed onto a `getUserMedia` call.
 
 [![NPM](https://nodei.co/npm/rtc-screenshare.png)](https://nodei.co/npm/rtc-screenshare/)
 
-[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental)
 
 ## Example Usage
 
@@ -41,7 +41,7 @@ function shareScreen() {
       target: document.getElementById('main')
     });
   });
-  
+
   // you better select something quick or this will be cancelled!!!
   setTimeout(screenshare.cancel, 5e3);
 }
@@ -69,7 +69,9 @@ screenshare.on('activate', function() {
 
 ```
 
-## Template Extension
+## Template Extensions
+
+### Chrome
 
 Template extension
 [source is available](https://github.com/rtc-io/rtc-screenshare-extension) and
@@ -78,6 +80,11 @@ an early, installable version of the extension is available in the
 
 __NOTE:__ The extension is not publicly available yet, but using the direct link
 you can install it.
+
+### Firefox
+
+Firefox allows screensharing without an extension, however, Mozilla only allows white
+listed domains to share the screen. You can apply for whitelists at https://bugzilla.mozilla.org/form.screen.share.whitelist - alternatively, you can use an [extension](https://github.com/muaz-khan/Firefox-Extensions/tree/master/enable-screen-capturing) to provide local whitelisting.
 
 ## Give it a Try
 
