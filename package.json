@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/rtc-io/rtc-screenshare",
   "dependencies": {
-    "chromex": "^1.1.0",
+    "chromex": "1.2.0",
     "cog": "^1.0.0",
     "eventemitter3": "^1.1.1",
     "rtc-core": "^4.0.0"
