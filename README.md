@@ -86,6 +86,14 @@ you can install it.
 Firefox allows screensharing without an extension, however, Mozilla only allows white
 listed domains to share the screen. You can apply for whitelists at https://bugzilla.mozilla.org/form.screen.share.whitelist - alternatively, you can use an [extension](https://github.com/muaz-khan/Firefox-Extensions/tree/master/enable-screen-capturing) to provide local whitelisting.
 
+### Electron
+
+[Electron](http://electron.atom.io/) is supported and will automatically gain access to screensharing features without the use of extensions or whitelisting.
+
+Electron only gained support for individual window captures as of `0.36.0`. In the absence of these features, rtc-screenshare defaults back to sharing the screen only.
+
+Electron does not come with a built-in window selection, so a simple default implementation is provided. You can override this to provide your own display logic by passing in `selectorFn: function(sources, callback)` in the options to `rtc-screenshare`.
+
 ## Give it a Try
 
 We've created a simple demo showing how to broadcast your screen and made it

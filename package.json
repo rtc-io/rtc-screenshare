@@ -29,6 +29,7 @@
   "dependencies": {
     "chromex": "1.2.0",
     "cog": "^1.0.0",
+    "crel": "^2.1.8",
     "eventemitter3": "^1.1.1",
     "rtc-core": "^4.0.0"
   },
