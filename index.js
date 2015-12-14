@@ -31,7 +31,7 @@ module.exports = function() {
   console.error('Screensharing is not supported on this device');
 };
 
-var handlers = [require('./chrome'), require('./moz')];
+var handlers = [require('./electron'), require('./chrome'), require('./moz')];
 for (var i = 0; i < handlers.length; i++) {
   var handler = handlers[i];
   if (handler && handler.supported()) {
