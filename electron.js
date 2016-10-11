@@ -30,7 +30,7 @@ exports.share = function(opts) {
   // patch in our capture function
   extension.request = function(callback) {
 
-    function selectMedia(source, sourceId) {
+    function selectMedia(source, sourceId, metadata) {
       if (!source) return callback('No media selected');
       return callback(null, extend({
         audio: false,
@@ -45,7 +45,7 @@ exports.share = function(opts) {
           },
           optional: []
         }
-      }, opts.constraints));
+      }, opts.constraints), metadata);
     }
 
     // If we are a version of Electron (>= 0.36.0) that supports desktopCapture
@@ -56,19 +56,19 @@ exports.share = function(opts) {
           if (err) return callback(err);
           // If we only have one, select only that
           if (sources && sources.length === 1) {
-            return selectMedia('desktop', sources[i].id);
+            return selectMedia('desktop', sources[i].id, {title: 'Screen'} );
           }
           // Allow a customised visual selector
-          (opts.selectorFn || simpleSelector)(sources, function(err, sourceId) {
+          (opts.selectorFn || simpleSelector)(sources, function(err, sourceId, metadata) {
             if (err) return callback(err);
-            return selectMedia('desktop', sourceId);
+            return selectMedia('desktop', sourceId, metadata);
           });
         }
       );
     }
     // Otherwise we only share the screen
     else {
-      return selectMedia('screen');
+      return selectMedia('screen', null, { title: 'Screen' });
     }
   };
 
@@ -98,7 +98,10 @@ function simpleSelector(sources, callback) {
     crel('span', { style: 'margin: 0.5rem; display: inline-block' },
       button('Share', function() {
         close();
-        return callback(null, options.value);
+        var selected = sources.filter(function(source) {
+          return source && source.id === options.value;
+        })[0];
+        return callback(null, options.value, { title: selected.name });
       }),
       button('Cancel', close)
     )
