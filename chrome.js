@@ -3,6 +3,16 @@ var extend = require('cog/extend');
 var OPT_DEFAULTS = {
   target: 'rtc.io screenshare'
 };
+var REQUEST_OPTS = {
+  targets: ['screen', 'window']
+};
+var CHROME_VERSION = getChromeVersion();
+
+// Chrome >= 50 allows for greater sharing options
+if (CHROME_VERSION >= 50) {
+  REQUEST_OPTS.targets.push('tab');
+  REQUEST_OPTS.targets.push('audio');
+}
 
 /**
   Returns true if we should use Chrome screensharing
@@ -27,7 +37,7 @@ exports.share = function(opts) {
 
   // patch in our capture function
   extension.request = function(callback) {
-    extension.sendCommand('share', function(err, sourceId) {
+    extension.sendCommand('share', REQUEST_OPTS, function(err, sourceId) {
       if (err) {
         return callback(err);
       }
@@ -36,9 +46,20 @@ exports.share = function(opts) {
         return callback(new Error('user rejected screen share request'));
       }
 
+      var audioConstraints = false;
+      // Support audio on Chrome 50+
+      if (CHROME_VERSION >= 50) {
+        audioConstraints = {
+          mandatory: {
+            chromeMediaSource: 'desktop',
+            chromeMediaSourceId: sourceId
+          }
+        };
+      }
+
       // pass the constraints through
       return callback(null, extend({
-        audio: false,
+        audio: audioConstraints,
         video: {
           mandatory: {
             chromeMediaSource: 'desktop',
@@ -61,3 +82,8 @@ exports.share = function(opts) {
 
   return extension;
 };
+
+function getChromeVersion() {
+  var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+  return raw ? parseInt(raw[2], 10) : -1;
+}
