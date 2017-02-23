@@ -11,7 +11,6 @@ var CHROME_VERSION = getChromeVersion();
 // Chrome >= 50 allows for greater sharing options
 if (CHROME_VERSION >= 50) {
   REQUEST_OPTS.targets.push('tab');
-  REQUEST_OPTS.targets.push('audio');
 }
 
 /**
@@ -46,20 +45,9 @@ exports.share = function(opts) {
         return callback(new Error('user rejected screen share request'));
       }
 
-      var audioConstraints = false;
-      // Support audio on Chrome 50+
-      if (CHROME_VERSION >= 50) {
-        audioConstraints = {
-          mandatory: {
-            chromeMediaSource: 'desktop',
-            chromeMediaSourceId: sourceId
-          }
-        };
-      }
-
       // pass the constraints through
       return callback(null, extend({
-        audio: audioConstraints,
+        audio: false,
         video: {
           mandatory: {
             chromeMediaSource: 'desktop',
