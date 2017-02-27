@@ -37,7 +37,8 @@ exports.share = function(opts) {
 
   // patch in our capture function
   extension.request = function(callback) {
-    extension.sendCommand('share', REQUEST_OPTS, function(err, sourceId) {
+    var requestOptions = extend(REQUEST_OPTS, (opts || {}).requests || {});
+    extension.sendCommand('share', requestOptions, function(err, sourceId) {
       if (err) {
         return callback(err);
       }
