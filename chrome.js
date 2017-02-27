@@ -48,7 +48,7 @@ exports.share = function(opts) {
 
       var audioConstraints = false;
       // Support audio on Chrome 50+
-      if (CHROME_VERSION >= 50) {
+      if (CHROME_VERSION >= 50 && !(opts || {}).disableAudio) {
         audioConstraints = {
           mandatory: {
             chromeMediaSource: 'desktop',
