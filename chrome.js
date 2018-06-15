@@ -11,7 +11,11 @@ var CHROME_VERSION = getChromeVersion();
 // Chrome >= 50 allows for greater sharing options
 if (CHROME_VERSION >= 50) {
   REQUEST_OPTS.targets.push('tab');
-  REQUEST_OPTS.targets.push('audio');
+
+  // if disableAudio, then hide the checkbox in the popup
+  if (!(opts || {}).disableAudio) {
+    REQUEST_OPTS.targets.push('audio');
+  }
 }
 
 /**

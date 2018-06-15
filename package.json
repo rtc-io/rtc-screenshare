@@ -1,6 +1,6 @@
 {
   "name": "rtc-screenshare",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "WebRTC Screensharing Chrome Extension ",
   "main": "index.js",
   "scripts": {
@@ -27,18 +27,18 @@
   },
   "homepage": "https://github.com/rtc-io/rtc-screenshare",
   "dependencies": {
-    "chromex": "1.2.0",
+    "chromex": "^1.2.2",
     "cog": "^1.0.0",
     "crel": "^2.1.8",
     "eventemitter3": "^1.1.1",
     "rtc-core": "^4.0.0"
   },
   "devDependencies": {
-    "hyperscript": "^1.4.2",
+    "hyperscript": "^2.0.2",
     "rtc-capture": "^1.0.2",
-    "rtc-captureconfig": "^2.0.0",
+    "rtc-captureconfig": "^4.1.0",
     "rtc-media": "^2.0.1",
-    "rtc-quickconnect": "^4.0.0",
-    "rtc-ui": "^1.1.0"
+    "rtc-quickconnect": "^5.8.4",
+    "rtc-ui": "^1.1.2"
   }
 }
