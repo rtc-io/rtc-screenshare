@@ -1,6 +1,6 @@
 {
   "name": "rtc-screenshare",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "WebRTC Screensharing Chrome Extension ",
   "main": "index.js",
   "scripts": {
