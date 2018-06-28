@@ -28,7 +28,13 @@ exports.supported = function() {
 exports.share = function(opts) {
 
   // if disableAudio, then hide the checkbox in the popup
-  if (!(opts || {}).disableAudio) {
+  if ((opts || {}).disableTab) {
+    var index = REQUEST_OPTS.targets.indexOf('tab');
+    if (index !== -1) REQUEST_OPTS.targets.splice(index, 1);
+  }
+
+  // if disableAudio, then hide the checkbox in the popup
+  if ((opts || {}).disableAudio) {
     var index = REQUEST_OPTS.targets.indexOf('audio');
     if (index !== -1) REQUEST_OPTS.targets.splice(index, 1);
   }
