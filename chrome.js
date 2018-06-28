@@ -12,10 +12,7 @@ var CHROME_VERSION = getChromeVersion();
 if (CHROME_VERSION >= 50) {
   REQUEST_OPTS.targets.push('tab');
 
-  // if disableAudio, then hide the checkbox in the popup
-  if (!(opts || {}).disableAudio) {
-    REQUEST_OPTS.targets.push('audio');
-  }
+  REQUEST_OPTS.targets.push('audio');
 }
 
 /**
@@ -29,6 +26,13 @@ exports.supported = function() {
   Creates the share context.
  **/
 exports.share = function(opts) {
+
+  // if disableAudio, then hide the checkbox in the popup
+  if (!(opts || {}).disableAudio) {
+    var index = REQUEST_OPTS.targets.indexOf('audio');
+    if (index !== -1) REQUEST_OPTS.targets.splice(index, 1);
+  }
+
   var extension = require('chromex/client')(extend({}, OPT_DEFAULTS, opts, {
     target: (opts || {}).chromeExtension
   }));
