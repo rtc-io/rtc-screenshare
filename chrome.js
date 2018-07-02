@@ -11,7 +11,6 @@ var CHROME_VERSION = getChromeVersion();
 // Chrome >= 50 allows for greater sharing options
 if (CHROME_VERSION >= 50) {
   REQUEST_OPTS.targets.push('tab');
-
   REQUEST_OPTS.targets.push('audio');
 }
 
@@ -27,8 +26,14 @@ exports.supported = function() {
  **/
 exports.share = function(opts) {
 
+  // if disableTab, then hide the menu item
+  if ((opts || {}).disableTab) {
+    var index = REQUEST_OPTS.targets.indexOf('tab');
+    if (index !== -1) REQUEST_OPTS.targets.splice(index, 1);
+  }
+
   // if disableAudio, then hide the checkbox in the popup
-  if (!(opts || {}).disableAudio) {
+  if ((opts || {}).disableAudio) {
     var index = REQUEST_OPTS.targets.indexOf('audio');
     if (index !== -1) REQUEST_OPTS.targets.splice(index, 1);
   }
